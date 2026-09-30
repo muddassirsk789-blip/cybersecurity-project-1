@@ -13,6 +13,8 @@ export interface SurveyQuestion {
   question: string;
   responses: number;
   chart: "bar" | "hbar" | "pie";
+  multi?: boolean;
+  sample?: boolean;
   options: SurveyOption[];
 }
 
@@ -47,22 +49,22 @@ function renderSliceLabel(props: unknown) {
 }
 
 export function SurveyChart({ q }: { q: SurveyQuestion }) {
-  const total = q.options.reduce((s, o) => s + o.count, 0);
+  const total = q.multi ? q.responses : q.options.reduce((s, o) => s + o.count, 0);
   const data = q.options.map((o, i) => ({ ...o, pct: pct(o.count, total), color: PALETTE[i % PALETTE.length] }));
 
   if (q.chart === "pie") {
     const slices = data.filter((d) => d.count > 0);
     return (
-      <div className="grid gap-6 sm:grid-cols-[1fr_auto] sm:items-center" data-testid={`survey-chart-${q.id}`}>
-        <div className="h-64">
+      <div className="flex flex-col gap-4" data-testid={`survey-chart-${q.id}`}>
+        <div className="h-60">
           <ResponsiveContainer width="100%" height="100%">
             <PieChart>
               <Pie
                 data={slices}
                 dataKey="count"
                 nameKey="label"
-                innerRadius={58}
-                outerRadius={100}
+                innerRadius={54}
+                outerRadius={96}
                 paddingAngle={2}
                 stroke="#070a0f"
                 strokeWidth={2}
@@ -78,14 +80,14 @@ export function SurveyChart({ q }: { q: SurveyQuestion }) {
             </PieChart>
           </ResponsiveContainer>
         </div>
-        <ul className="space-y-2 sm:min-w-56" data-testid={`survey-legend-${q.id}`}>
+        <ul className="grid gap-x-6 gap-y-2 sm:grid-cols-2" data-testid={`survey-legend-${q.id}`}>
           {data.map((d) => (
             <li key={d.label} className="flex items-center justify-between gap-4 font-mono text-xs">
               <span className="flex items-center gap-2 text-slate-300">
                 <span className="h-2.5 w-2.5 rounded-sm" style={{ background: d.color }} />
                 {d.label}
               </span>
-              <span className="text-slate-500">{d.count} · {d.pct}</span>
+              <span className="shrink-0 text-slate-500">{d.count} · {d.pct}</span>
             </li>
           ))}
         </ul>
@@ -94,13 +96,14 @@ export function SurveyChart({ q }: { q: SurveyQuestion }) {
   }
 
   if (q.chart === "hbar") {
+    const labelWidth = Math.min(140, Math.max(48, Math.max(...data.map((d) => d.label.length)) * 7.5));
     return (
-      <div className="h-52" data-testid={`survey-chart-${q.id}`}>
+      <div style={{ height: Math.max(180, data.length * 46 + 60) }} data-testid={`survey-chart-${q.id}`}>
         <ResponsiveContainer width="100%" height="100%">
           <BarChart data={data} layout="vertical" margin={{ left: 8, right: 72, top: 8, bottom: 8 }} barCategoryGap={18}>
             <CartesianGrid horizontal={false} stroke="#1e293b" strokeDasharray="3 3" />
             <XAxis type="number" tick={{ fill: "#64748b", fontSize: 11, fontFamily: "monospace" }} axisLine={false} tickLine={false} allowDecimals={false} />
-            <YAxis type="category" dataKey="label" width={48} tick={{ fill: "#cbd5e1", fontSize: 12, fontFamily: "monospace" }} axisLine={false} tickLine={false} />
+            <YAxis type="category" dataKey="label" width={labelWidth} tick={{ fill: "#cbd5e1", fontSize: 12, fontFamily: "monospace" }} axisLine={false} tickLine={false} />
             <Tooltip {...tooltipStyle} formatter={(v: number, _n, item) => [`${v} · ${(item.payload as { pct: string }).pct}`, "Responses"]} />
             <Bar dataKey="count" radius={[0, 4, 4, 0]} maxBarSize={44}>
               {data.map((d) => <Cell key={d.label} fill={d.color} />)}

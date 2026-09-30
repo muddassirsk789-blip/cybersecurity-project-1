@@ -33,3 +33,4 @@
 - Backend: `GET /api/survey` serves the data from `/app/backend/survey_data.py` (edit this file to add/adjust questions).
 - Frontend: `src/pages/SurveyResponses.tsx`, `src/components/SurveyChart.tsx` (recharts), navbar link `nav-link-responses`.
 - Incident report form remains at `/report`.
+- Added 10 more awareness questions (Q04–Q13: password reuse, 2FA, phishing exposure, victim, updates, public Wi-Fi, antivirus, phishing confidence, learning sources [multi-select], workshop interest). These use SAMPLE (placeholder) data flagged with `"sample": True` and shown with an amber "Sample data" tag; replace counts in `survey_data.py` with real results when available. Supports `multi: True` (percent of respondents).

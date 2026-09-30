@@ -42,7 +42,9 @@ export default function SurveyResponses() {
           </h1>
           <p className="mt-4 max-w-2xl leading-relaxed text-slate-400">
             What people told us about how they use the internet and how much they already know about
-            cybersecurity. Every chart below is drawn from the raw survey responses.
+            cybersecurity. Every chart below is drawn from the raw survey responses. Charts tagged
+            <span className="mx-1 font-mono text-xs uppercase text-amber-400">sample data</span>
+            use placeholder answers until real responses are collected.
           </p>
           {data && (
             <div className="mt-8 flex flex-wrap gap-3 font-mono text-xs uppercase tracking-[0.15em]">
@@ -85,8 +87,13 @@ export default function SurveyResponses() {
                       </p>
                       <h2 className="mt-1 text-base font-semibold text-slate-100 md:text-lg">{q.question}</h2>
                     </div>
-                    <span className="shrink-0 font-mono text-[10px] uppercase tracking-[0.2em] text-slate-500">
+                    <span className="flex shrink-0 flex-col items-end gap-1 font-mono text-[10px] uppercase tracking-[0.2em] text-slate-500">
                       {q.responses} responses
+                      {q.sample && (
+                        <span className="rounded border border-amber-500/40 px-1.5 py-0.5 text-[9px] text-amber-400" data-testid={`survey-sample-tag-${q.id}`}>
+                          Sample data
+                        </span>
+                      )}
                     </span>
                   </div>
                   <SurveyChart q={q} />
