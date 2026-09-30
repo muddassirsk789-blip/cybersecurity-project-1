@@ -17,6 +17,7 @@ ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
 
 from lib.db import client, db, ensure_indexes
+from survey_data import SURVEY
 
 logger = logging.getLogger(__name__)
 
@@ -126,6 +127,11 @@ async def stats():
         "active": active,
         "by_type": by_type,
     }
+
+
+@api_router.get("/survey")
+async def survey():
+    return SURVEY
 
 
 app.include_router(api_router)

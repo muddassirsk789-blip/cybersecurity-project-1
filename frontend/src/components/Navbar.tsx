@@ -26,6 +26,13 @@ export function Navbar() {
               {l.label}
             </a>
           ))}
+          <Link
+            to="/responses"
+            data-testid="nav-link-responses"
+            className="font-mono text-xs uppercase tracking-[0.2em] text-slate-400 transition-colors duration-200 hover:text-emerald-400"
+          >
+            Responses
+          </Link>
         </nav>
         <div className="flex items-center gap-4">
           <span className="hidden items-center gap-2 font-mono text-[10px] uppercase tracking-[0.2em] text-slate-500 sm:flex">

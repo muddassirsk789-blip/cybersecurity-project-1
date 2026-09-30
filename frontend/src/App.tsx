@@ -4,6 +4,7 @@ import Lenis from "lenis";
 import { Toaster } from "@/components/ui/sonner";
 import Home from "@/pages/Home";
 import ReportIncident from "@/pages/ReportIncident";
+import SurveyResponses from "@/pages/SurveyResponses";
 
 export default function App() {
   useEffect(() => {
@@ -25,6 +26,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/report" element={<ReportIncident />} />
+        <Route path="/responses" element={<SurveyResponses />} />
       </Routes>
       <Toaster />
     </>

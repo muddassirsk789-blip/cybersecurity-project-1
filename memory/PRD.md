@@ -27,3 +27,9 @@
 1. Case lookup page so reporters can track status
 2. Email confirmation via Resend on report submission
 3. Admin dashboard for triaging reports
+
+## Update — Survey Responses page (July 2026)
+- Added `/responses` page ("Awareness survey results") recreating the user's Google Forms charts: Age (bar), Heard about cybersecurity (horizontal bar), Internet usage frequency (donut), Main device (donut). 31 respondents.
+- Backend: `GET /api/survey` serves the data from `/app/backend/survey_data.py` (edit this file to add/adjust questions).
+- Frontend: `src/pages/SurveyResponses.tsx`, `src/components/SurveyChart.tsx` (recharts), navbar link `nav-link-responses`.
+- Incident report form remains at `/report`.
