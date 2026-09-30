@@ -5,7 +5,6 @@ import { Toaster } from "@/components/ui/sonner";
 import Home from "@/pages/Home";
 import ReportIncident from "@/pages/ReportIncident";
 import SurveyResponses from "@/pages/SurveyResponses";
-import TakeSurvey from "@/pages/TakeSurvey";
 
 export default function App() {
   useEffect(() => {
@@ -28,7 +27,6 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/report" element={<ReportIncident />} />
         <Route path="/responses" element={<SurveyResponses />} />
-        <Route path="/survey" element={<TakeSurvey />} />
       </Routes>
       <Toaster />
     </>

@@ -27,13 +27,6 @@ export function Navbar() {
             </a>
           ))}
           <Link
-            to="/survey"
-            data-testid="nav-link-survey"
-            className="font-mono text-xs uppercase tracking-[0.2em] text-slate-400 transition-colors duration-200 hover:text-emerald-400"
-          >
-            Survey
-          </Link>
-          <Link
             to="/responses"
             data-testid="nav-link-responses"
             className="font-mono text-xs uppercase tracking-[0.2em] text-slate-400 transition-colors duration-200 hover:text-emerald-400"
