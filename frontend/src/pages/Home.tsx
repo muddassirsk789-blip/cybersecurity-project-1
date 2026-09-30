@@ -5,11 +5,12 @@ import { useQuery } from "@tanstack/react-query";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell } from "recharts";
 import {
   ArrowRight, Bug, CheckCircle2, Clock, Fingerprint, HardDrive, LifeBuoy,
-  Lock, Mail, ShieldCheck, Users, Wifi, Zap,
+  Lock, Mail, PieChart, ShieldCheck, Users, Wifi, Zap,
 } from "lucide-react";
 import { apiGet } from "@/lib/api";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { SurveyTeaser } from "@/components/SurveyTeaser";
 import { FadeIn, MaskLine, SectionHeading } from "@/components/Reveal";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 
@@ -230,6 +231,13 @@ export default function Home() {
               >
                 Explore threat matrix
               </a>
+              <Link
+                to="/responses"
+                data-testid="hero-cta-responses"
+                className="flex items-center gap-2 rounded-md border border-slate-700 px-6 py-3.5 font-mono text-sm font-bold uppercase tracking-[0.15em] text-slate-300 transition-all duration-200 hover:-translate-y-0.5 hover:border-emerald-500/50 hover:text-emerald-400"
+              >
+                <PieChart className="h-4 w-4" /> Survey responses
+              </Link>
             </FadeIn>
             <FadeIn delay={1.05} className="mt-14 grid max-w-xl grid-cols-3 gap-6 border-t border-slate-800/80 pt-6">
               {[
@@ -262,6 +270,9 @@ export default function Home() {
           ))}
         </div>
       </div>
+
+      {/* ============ SURVEY RESPONSES ============ */}
+      <SurveyTeaser />
 
       {/* ============ THREATS BENTO ============ */}
       <section id="threats" className="mx-auto max-w-7xl scroll-mt-24 px-6 py-28">
