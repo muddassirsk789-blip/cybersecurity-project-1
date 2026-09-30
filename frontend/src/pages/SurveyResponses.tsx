@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-import { ArrowLeft, ArrowRight, BarChart3, Loader2, Users } from "lucide-react";
+import { ArrowLeft, ArrowRight, BarChart3, ClipboardList, Loader2, Radio, Users } from "lucide-react";
 import { apiGet } from "@/lib/api";
 import { Logo } from "@/components/Logo";
 import { FadeIn } from "@/components/Reveal";
@@ -9,6 +9,7 @@ import { SurveyChart, type SurveyQuestion } from "@/components/SurveyChart";
 interface Survey {
   title: string;
   respondents: number;
+  live_responses: number;
   questions: SurveyQuestion[];
 }
 
@@ -42,18 +43,28 @@ export default function SurveyResponses() {
           </h1>
           <p className="mt-4 max-w-2xl leading-relaxed text-slate-400">
             What people told us about how they use the internet and how much they already know about
-            cybersecurity. Every chart below is drawn from the raw survey responses. Charts tagged
+            cybersecurity. Charts update live as visitors take the survey. Charts tagged
             <span className="mx-1 font-mono text-xs uppercase text-amber-400">sample data</span>
-            use placeholder answers until real responses are collected.
+            show placeholder answers until the first real response replaces them.
           </p>
           {data && (
-            <div className="mt-8 flex flex-wrap gap-3 font-mono text-xs uppercase tracking-[0.15em]">
+            <div className="mt-8 flex flex-wrap items-center gap-3 font-mono text-xs uppercase tracking-[0.15em]">
               <span className="flex items-center gap-2 rounded-md border border-slate-800 bg-[#0b1017] px-3 py-2 text-slate-300" data-testid="responses-respondents">
                 <Users className="h-3.5 w-3.5 text-emerald-400" /> {data.respondents} respondents
               </span>
               <span className="flex items-center gap-2 rounded-md border border-slate-800 bg-[#0b1017] px-3 py-2 text-slate-300" data-testid="responses-question-count">
                 <BarChart3 className="h-3.5 w-3.5 text-emerald-400" /> {data.questions.length} questions
               </span>
+              <span className="flex items-center gap-2 rounded-md border border-slate-800 bg-[#0b1017] px-3 py-2 text-slate-300" data-testid="responses-live-count">
+                <Radio className="h-3.5 w-3.5 text-emerald-400" /> {data.live_responses} live on-site
+              </span>
+              <Link
+                to="/survey"
+                data-testid="responses-take-survey-cta"
+                className="flex items-center gap-2 rounded-md bg-emerald-500 px-4 py-2 font-bold text-[#03140d] transition-all duration-200 hover:-translate-y-0.5 hover:bg-emerald-400"
+              >
+                <ClipboardList className="h-3.5 w-3.5" /> Take the survey
+              </Link>
             </div>
           )}
         </FadeIn>

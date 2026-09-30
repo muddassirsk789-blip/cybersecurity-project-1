@@ -17,7 +17,7 @@ ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
 
 from lib.db import client, db, ensure_indexes
-from survey_data import SURVEY
+from survey import router as survey_router
 
 logger = logging.getLogger(__name__)
 
@@ -129,12 +129,8 @@ async def stats():
     }
 
 
-@api_router.get("/survey")
-async def survey():
-    return SURVEY
-
-
 app.include_router(api_router)
+app.include_router(survey_router)
 
 app.add_middleware(
     CORSMiddleware,
