@@ -35,3 +35,4 @@
 - Incident report form remains at `/report`.
 - Added 10 more awareness questions (Q04–Q13: password reuse, 2FA, phishing exposure, victim, updates, public Wi-Fi, antivirus, phishing confidence, learning sources [multi-select], workshop interest). These use SAMPLE (placeholder) data flagged with `"sample": True` and shown with an amber "Sample data" tag; replace counts in `survey_data.py` with real results when available. Supports `multi: True` (percent of respondents).
 - Live survey feature was built then REMOVED at user request (July 2026). Charts are static from `survey_data.py`; `GET /api/survey` only. No `/survey` page or `survey_responses` collection.
+- Added 8 more sample questions (Q14–Q21: phone lock, password manager, password sharing, sender check, backups, app permissions, biggest worry, action on suspicious message). Total 22 charts (4 real + 18 sample).
