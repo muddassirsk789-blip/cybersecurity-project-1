@@ -1,0 +1,209 @@
+{
+  "brand_identity": {
+    "name": "AEGIS // PROTOCOL",
+    "tagline": "Autonomous Threat Radar & Incident Response Grid",
+    "archetype": "SWISS_HIGH_CONTRAST_CYBER",
+    "concept": "Tactical cybersecurity awareness platform blending high-precision Swiss grid typography with cyber telemetry, live threat radar visualization, interactive vulnerability diagnostics, and an incident reporting pipeline with instant cryptographic case ID generation.",
+    "favicon_svg": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' fill='none'><rect width='32' height='32' rx='6' fill='#0B0F17'/><path d='M16 4L6 9V17C6 23.5 10.3 29.4 16 31C21.7 29.4 26 23.5 26 17V9L16 4Z' stroke='#10B981' stroke-width='2' stroke-linejoin='round'/><path d='M12 16L15 19L20 13' stroke='#10B981' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/></svg>"
+  },
+  "typography": {
+    "font_family_heading": "Outfit Variable, sans-serif",
+    "font_family_body": "DM Sans Variable, sans-serif",
+    "font_family_mono": "JetBrains Mono Variable, monospace",
+    "import_statement": "@import '@fontsource-variable/outfit';\n@import '@fontsource-variable/dm-sans';\n@import '@fontsource-variable/jetbrains-mono';",
+    "scale_px": {
+      "display": 56,
+      "h1": 44,
+      "h2": 32,
+      "h3": 24,
+      "h4": 18,
+      "body": 16,
+      "caption": 14,
+      "micro": 12
+    },
+    "rules": {
+      "headlines": "font-black tracking-tight uppercase leading-none font-heading",
+      "subheadings": "font-medium tracking-normal text-muted-foreground leading-relaxed",
+      "labels": "font-mono text-xs uppercase tracking-[0.2em] font-semibold text-emerald-400",
+      "data_values": "font-mono font-bold tracking-tight",
+      "body_copy": "font-normal leading-relaxed text-slate-300 max-w-prose"
+    }
+  },
+  "colors": {
+    "theme_mode": "dark",
+    "accent": "#10B981",
+    "on_accent": "#03140D",
+    "accent_secondary": "#06B6D4",
+    "accent_warning": "#F59E0B",
+    "accent_danger": "#EF4444",
+    "surfaces": [
+      {
+        "name": "page",
+        "kind": "solid",
+        "bg": "#070A0F",
+        "on_bg": "#F1F5F9",
+        "on_bg_muted": "#94A3B8",
+        "roles": {
+          "border": "#1E293B",
+          "border_glow": "#10B98133",
+          "link": "#34D399",
+          "success": "#10B981",
+          "warning": "#FBBF24",
+          "danger": "#F87171"
+        }
+      },
+      {
+        "name": "card_surface",
+        "kind": "solid",
+        "bg": "#0D131F",
+        "on_bg": "#F8FAFC",
+        "on_bg_muted": "#94A3B8",
+        "roles": {
+          "border": "#1E293B",
+          "hover_border": "#334155",
+          "tag_bg": "#132130",
+          "tag_text": "#38BDF8"
+        }
+      },
+      {
+        "name": "incident_panel",
+        "kind": "solid",
+        "bg": "#0F172A",
+        "on_bg": "#F8FAFC",
+        "on_bg_muted": "#A1A1AA",
+        "roles": {
+          "input_bg": "#070A0F",
+          "input_border": "#334155",
+          "input_focus_border": "#10B981",
+          "critical_badge_bg": "#450A0A",
+          "critical_badge_text": "#FCA5A5"
+        }
+      },
+      {
+        "name": "hero_glass",
+        "kind": "glass",
+        "contrast_against": "#0A0F1D",
+        "guarantee": "scrim: linear-gradient(180deg, rgba(7,10,15,0.75) 0%, rgba(7,10,15,0.92) 100%), backdrop-blur-xl bg-[#0D131F]/80 border border-slate-800/80",
+        "on_bg": "#FFFFFF",
+        "on_bg_muted": "#94A3B8",
+        "roles": {
+          "terminal_header": "#1E293B",
+          "status_dot": "#10B981"
+        }
+      },
+      {
+        "name": "terminal_drawer",
+        "kind": "solid",
+        "bg": "#05080E",
+        "on_bg": "#E2E8F0",
+        "on_bg_muted": "#64748B",
+        "roles": {
+          "code_prompt": "#10B981",
+          "code_output": "#38BDF8",
+          "code_warning": "#F59E0B"
+        }
+      }
+    ]
+  },
+  "entry_surfaces": {
+    "/": "split hero — brand threat telemetry + kinetic headline left, interactive 3D particle canvas & live threat monitor right",
+    "/report": "tactical single-column incident intake cockpit — priority banner top, structured triage fields center, instant cryptographic case ID confirmation modal"
+  },
+  "visual_enhancers": {
+    "grid_overlay": "Subtle 40px cyber grid matrix (`bg-[linear-gradient(to_right,#1e293b18_1px,transparent_1px),linear-gradient(to_bottom,#1e293b18_1px,transparent_1px)] bg-[size:4rem_4rem]`) with vignette mask",
+    "glowing_edges": "1px inner stroke `border-slate-800 hover:border-emerald-500/40 transition-colors duration-300`",
+    "radar_animation": "Conic scanner pulse on threat overview with radar sweep CSS animation",
+    "terminal_telemetry": "Live status ticker with UTC ISO timestamps, latency ping indicator (24ms), and global threat severity status",
+    "editorial_ribbon": "react-fast-marquee powered low-drift banner with security standard acronyms (NIST CSF 2.0 • ISO/IEC 27001 • ZERO TRUST ARCHITECTURE • MITRE ATT&CK • GDPR DPO READY • OWASP TOP 10)"
+  },
+  "layouts_and_grids": {
+    "navbar": "Fixed header (z-50) with glassmorphism `backdrop-blur-xl bg-[#070a0f]/85 border-b border-slate-800/80`. Contains Logo, Navigation items (Threats, Safety Tips, Intelligence/Stats, Live Radar), Incident Report CTA with emergency pulsing beacon (`/report`), and status ping indicator.",
+    "hero_section": "Two-column bento asymmetric layout (lg:grid-cols-12 gap-8). Col-span-7 holds line-by-line masked kinetic heading, mission narrative, primary CTA ('Report Active Incident' & 'Explore Threat Matrix') and quick diagnostic stats. Col-span-5 holds interactive Threat Simulation Card with live radar toggle & defense health score.",
+    "editorial_marquee": "Full-width seamless ticker ribbon featuring dark slate background (#0a0f18) and emerald telemetry tags.",
+    "threats_overview_bento": "Asymmetric 4-card high-impact grid: Phishing (Col-span-12 lg:col-span-7 with interactive email analyzer simulation), Ransomware (Col-span-12 lg:col-span-5 with encryption countdown preview), Social Engineering (Col-span-12 lg:col-span-5 with conversational trap breakdown), Malware & Zero-Days (Col-span-12 lg:col-span-7 with live payload sandbox inspector).",
+    "safety_tips_interactive": "Interactive 4-tier tactical defense matrix with tabbed drill-down (Identity & MFA, Device Hardening, Network Hygiene, Crisis Runbook) featuring actionable checklist cards with copy-ready guidance.",
+    "statistics_dashboard": "High-density cyber metric bento with recharts visualization: Global Attack Volume by Vector, Average Breach Cost breakdown ($4.45M), Mean Time to Detect (MTTD vs MTTR gauge), and 2026 Emerging Threat Forecast.",
+    "incident_report_page": "Dedicated `/report` route. Single-column focused intake form: Step 1 (Incident Category: Phishing, Ransomware, Unauthorized Access, Data Leak, DDoS, Malware), Step 2 (Severity Rating: Low, Medium, High, Critical P1), Step 3 (Detailed Evidence & Target System), Step 4 (Reporter Details & Encrypted Confirmation). On submit -> saves report to MongoDB backend via `/api/reports`, provides instant Case Reference ID (e.g. `CASE-2026-X94B`), instructions on immediate triage containment, and recent incident logs viewer."
+  },
+  "media_and_assets": {
+    "hero_background_network": "https://images.unsplash.com/photo-1644088379091-d574269d422f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzNzl8MHwxfHNlYXJjaHwyfHxjeWJlcnNlY3VyaXR5JTIwZGFyayUyMGRpZ2l0YWwlMjBncmlkJTIwbmV0d29ya3xlbnwwfHx8fDE3OTA3ODA1NzR8MA&ixlib=rb-4.1.0&q=85",
+    "threat_sandbox_visual": "https://images.unsplash.com/photo-1639322537228-f710d846310a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzNzl8MHwxfHNlYXJjaHwzfHxjeWJlcnNlY3VyaXR5JTIwZGFyayUyMGRpZ2l0YWwlMjBncmlkJTIwbmV0d29ya3xlbnwwfHx8fDE3OTA3ODA1NzR8MA&ixlib=rb-4.1.0&q=85",
+    "security_operations_screen": "https://images.unsplash.com/photo-1751448555253-f39c06e29d82?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzNzl8MHwxfHNlYXJjaHwxfHxjeWJlcnNlY3VyaXR5JTIwZGFyayUyMGRpZ2l0YWwlMjBncmlkJTIwbmV0d29ya3xlbnwwfHx8fDE3OTA3ODA1NzR8MA&ixlib=rb-4.1.0&q=85",
+    "server_datacenter_glow": "https://images.unsplash.com/photo-1680992046615-065f58bcb4d8?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NTN8MHwxfHNlYXJjaHwyfHxzZXJ2ZXIlMjByb29tJTIwZGFyayUyMGdsb3dpbmclMjBkYXRhJTIwY2VudGVyfGVufDB8fHx8MTc5MDc4MDU3NHww&ixlib=rb-4.1.0&q=85"
+  },
+  "motion_specs": {
+    "engine": "motion/react (framer-motion)",
+    "smooth_scroll": "Lenis smooth scroll integration on root layout",
+    "hero_reveal": {
+      "initial": { "opacity": 0, "y": 24 },
+      "animate": { "opacity": 1, "y": 0 },
+      "transition": { "duration": 0.6, "ease": [0.16, 1, 0.3, 1] }
+    },
+    "stagger_cards": {
+      "container": { "transition": { "staggerChildren": 0.08 } },
+      "item": { "initial": { "opacity": 0, "y": 20 }, "animate": { "opacity": 1, "y": 0 } }
+    },
+    "radar_pulse": "repeating radar sweep keyframe with 4s loop",
+    "hover_lift": "hover:-translate-y-1 transition-transform duration-200 ease-out"
+  },
+  "backend_and_database_contract": {
+    "collection": "incident_reports",
+    "models": {
+      "IncidentReportCreate": {
+        "title": "str",
+        "incident_type": "Literal['phishing', 'ransomware', 'data_breach', 'malware', 'social_engineering', 'unauthorized_access', 'ddos', 'other']",
+        "severity": "Literal['low', 'medium', 'high', 'critical']",
+        "description": "str",
+        "reporter_email": "EmailStr",
+        "affected_systems": "Optional[str]",
+        "occurred_at": "Optional[str]"
+      },
+      "IncidentReportResponse": {
+        "id": "str (UUID)",
+        "case_id": "str (e.g. CASE-2026-XXXX)",
+        "title": "str",
+        "incident_type": "str",
+        "severity": "str",
+        "description": "str",
+        "reporter_email": "str",
+        "affected_systems": "Optional[str]",
+        "status": "Literal['received', 'triaged', 'investigating', 'resolved']",
+        "created_at": "datetime (ISO aware UTC)"
+      }
+    },
+    "endpoints": [
+      { "method": "POST", "path": "/api/reports", "desc": "Saves incident report, generates unique CASE-2026-XXXX reference ID and returns confirmation" },
+      { "method": "GET", "path": "/api/reports", "desc": "Returns recent public sanitized incident radar logs with triage status" },
+      { "method": "GET", "path": "/api/stats", "desc": "Returns live intelligence summary metrics (total reported, active triage, resolved, vector distribution)" }
+    ]
+  },
+  "test_attributes": {
+    "nav_logo": "data-testid='nav-brand-logo'",
+    "nav_link_threats": "data-testid='nav-link-threats'",
+    "nav_link_tips": "data-testid='nav-link-tips'",
+    "nav_link_stats": "data-testid='nav-link-stats'",
+    "nav_cta_report": "data-testid='nav-cta-report-incident'",
+    "hero_cta_report": "data-testid='hero-cta-report'",
+    "hero_cta_explore": "data-testid='hero-cta-explore'",
+    "threat_tab_phishing": "data-testid='threat-tab-phishing'",
+    "threat_tab_ransomware": "data-testid='threat-tab-ransomware'",
+    "threat_tab_malware": "data-testid='threat-tab-malware'",
+    "report_form_type_select": "data-testid='report-incident-type-select'",
+    "report_form_severity_select": "data-testid='report-severity-select'",
+    "report_form_title_input": "data-testid='report-title-input'",
+    "report_form_desc_input": "data-testid='report-description-textarea'",
+    "report_form_email_input": "data-testid='report-email-input'",
+    "report_form_submit_btn": "data-testid='report-form-submit-button'",
+    "report_success_case_id": "data-testid='report-success-case-id'",
+    "stats_chart_container": "data-testid='stats-chart-container'"
+  },
+  "instructions_to_main_agent": [
+    "Install `lenis` or `@studio-freight/lenis` / `lenis/react` if needed, and `react-fast-marquee` (`yarn add react-fast-marquee lenis`). Note that `@fontsource-variable/outfit`, `@fontsource-variable/dm-sans`, and `@fontsource-variable/jetbrains-mono` are already available in the container - just import them in `frontend/src/index.css`.",
+    "Ensure `frontend/index.html` has `<html class='dark'>` and title 'AEGIS // Threat Radar & Incident Response Grid'.",
+    "Build the two required views: `frontend/src/pages/Home.tsx` (Awareness landing page with kinetic hero, threats bento, safety tips matrix, statistics charts with recharts) and `frontend/src/pages/ReportIncident.tsx` (Tactical incident response intake form with live validation and confirmation modal).",
+    "In `backend/server.py` or `backend/routers/reports.py`, implement FastAPI routes for POST `/api/reports` and GET `/api/reports` and GET `/api/stats`, backing to MongoDB `incident_reports` collection.",
+    "Seed `backend/seed.py` with 8 realistic initial threat reports (e.g. Spear Phishing Executive impersonation, LockBit 4.0 ransomware attempt, API credential leak) so the intelligence radar displays live telemetry out of the box.",
+    "Use high-contrast slate (#070A0F) with emerald (#10B981) and cyan accents. Never use generic full-screen gradients. Keep text APCA accessible.",
+    "Make sure all interactive and key informational elements have their specified `data-testid` attributes."
+  ]
+}
